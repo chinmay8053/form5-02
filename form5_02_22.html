@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+      /* prettier-ignore */
+      *{padding: 0;margin: 0;box-sizing: border-box;}
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        line-height: 0;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+      }
+      input,
+      input:focus-visible {
+        padding: 0.3rem;
+        padding-left: 1rem;
+        background-color: #bed1d4;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+      }
+      input:focus-visible {
+        background-color: #fff;
+      }
+      .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-main {
+        width: 100%;
+        height: 100vh;
+        background-color: #719da5;
+      }
+      form {
+        /* border: 1px solid black; */
+        border-radius: 1rem;
+        padding: 4rem 3rem;
+        background-color: #5d8a92;
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: flex-end;
+        box-shadow: 0 0 2rem rgba(34, 34, 34, 0.5);
+      }
+      .form-name,
+      .form-lname,
+      .form-email,
+      .form-address,
+      .form-address2,
+      .form-gender,
+      .form-plan,
+      .form-mobile {
+        width: 30rem;
+        height: 2rem;
+        justify-content: space-between;
+        color: #f3ebeb;
+      }
+      .gender-choice {
+        gap: 1rem;
+      }
+      .radio {
+        justify-content: flex-start;
+        gap: 1rem;
+      }
+      .plane-a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #f3ebeb;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+      .rotate-180 {
+        transition: 250ms;
+        transform: rotate(-180deg);
+      }
+      .rotate-0 {
+        transition: 250ms;
+        transform: rotate(0);
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border-radius: 5px;
+        gap: 2rem;
+        background-color: #96aaad;
+        padding: 1rem 0;
+        box-shadow: 0 1rem 1rem rgba(34, 34, 34, 0.3);
+      }
+      .radio {
+        width: 18rem;
+        padding: 1rem 0;
+        padding-left: 2rem;
+      }
+      .hidden {
+        display: none;
+      }
+      .btn-submit {
+        font-weight: bold;
+        color: #62929b;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5rem;
+        width: 90%;
+        margin-top: 3rem;
+        padding: 0.7rem 0;
+        box-shadow: 0.3rem 1rem 1rem rgba(34, 34, 34, 0.2);
+      }
+      .btn-submit:active {
+        box-shadow: 0.1rem 0.5rem 1rem rgba(34, 34, 34, 0.2);
+
+        background-color: rgb(233, 224, 224);
+      }
+
+      .show-text {
+        color: #dac6bf;
+        font-size: 4rem;
+      }
+
+      .show {
+        width: 100%;
+        height: 100vh;
+        background-color: #c97e63;
+      }
+      .blur {
+        position: absolute;
+        top: 100vh;
+        transform: translateY(-50%);
+        height: 5rem;
+        width: 100%;
+        /* border: 1px solid black; */
+        background: linear-gradient(#719da5, #c97e63);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-center form-main">
+      <form action="#show" class="flex-center">
+        <div class="flex-center form-name">
+          <label for="fname">First Name: </label>
+          <input type="text" name="fname" class="fname" placeholder="First Name" required />
+        </div>
+        <div class="flex-center form-lname">
+          <label for="lname">Last Name: </label>
+          <input type="text" name="lname" class="lname" placeholder="Last Name" required />
+        </div>
+        <div class="flex-center form-email">
+          <label for="email">Email: </label>
+          <input type="text" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="flex-center form-address">
+          <label for="address1">Address 1: </label>
+          <input type="text" name="address1" placeholder="Address 1" required />
+        </div>
+        <div class="flex-center form-address2">
+          <label for="address2">Address 2: </label>
+          <input type="text" name="address2" placeholder="Address 2" />
+        </div>
+        <div class="flex-center form-gender">
+          <label for="gender">Gender: </label>
+          <div class="flex-center gender-choice">
+            <input type="radio" name="gender" value="male" /> male <input type="radio" name="gender" value="female" /> female
+          </div>
+        </div>
+        <div class="flex-center form-plan">
+          <label for="plan">Plane:</label>
+          <div class="dropdown">
+            <a href="" class="plane-a">Select Plan <span class="material-icons rotate-0"> expand_more </span></a>
+            <div class="dropdown-menu hidden">
+              <div class="flex-center radio radio-company"><input type="radio" name="plan" value="company" /> company plan</div>
+              <div class="flex-center radio radio-free"><input type="radio" name="plan" value="free" /> free plan</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-center form-mobile">
+          <label for="cell">Phone:</label>
+          <input type="text" name="cell" id="" placeholder="Your Number" required />
+        </div>
+
+        <button class="btn-submit" type="submit" id="myButton">submit</button>
+      </form>
+    </div>
+    <div class="blur hidden"></div>
+
+    <div class="flex-center show hidden" id="show">
+      <h1 class="show-text">Thank You Mr</h1>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    document.querySelector(".plane-a").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(".dropdown-menu").classList.toggle("hidden");
+      document.querySelector(".material-icons").classList.toggle("rotate-180");
+      document.querySelector(".material-icons").classList.toggle("rotate-0");
+    });
+    document.querySelector(".btn-submit").addEventListener("click", function (e) {
+      e.preventDefault();
+      const fname = document.querySelector(".fname").value;
+      const lname = document.querySelector(".lname").value;
+      document.querySelector(".blur").classList.remove("hidden");
+      document.querySelector(".show").classList.remove("hidden");
+      document.querySelector(".show-text").innerHTML = `Thank You Mister ${fname} ${lname}`;
+    });
+    $("#myButton").click(function () {
+      $("html, body").animate(
+        {
+          scrollTop: $("#show").offset().top,
+        },
+        500
+      );
+    });
+  </script>
+</html>

@@ -19,7 +19,25 @@
         font-weight: 400;
         scroll-behavior: smooth;
         box-sizing: border-box;
+        overflow: overlay;
+        -webkit-scrollbar: green;
       }
+      ::-webkit-scrollbar {
+        width: 13px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        /* box-shadow: inset 0 0 5px grey; */
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(83, 134, 143, 0.8);
+        border-radius: 5px;
+      }
+
       input,
       input:focus-visible {
         padding: 0.3rem;
@@ -38,7 +56,7 @@
         align-items: center;
       }
       .form-main {
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-color: #719da5;
       }
@@ -134,7 +152,7 @@
       }
 
       .show {
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-color: #c97e63;
       }
